@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 class LeanBodyCalculationPage extends StatefulWidget {
 
 
@@ -18,7 +19,7 @@ class _LeanBodyCalculationPageState extends State<LeanBodyCalculationPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(title: Text('Body Mass Index',style: TextStyle(color: Colors.black),),backgroundColor: Colors.white,),
+        appBar: AppBar(title: Text('Lean Body',style: TextStyle(color: Colors.black),),backgroundColor: Colors.white,),
         body:
         Padding(
           padding: const EdgeInsets.all(20.0),
@@ -26,8 +27,8 @@ class _LeanBodyCalculationPageState extends State<LeanBodyCalculationPage> {
             child: ListView(
               children: [
                 Container(
-                  height: 300,
-                  width: 400,
+                  height: 300.h,
+                  width: 400.w,
                   decoration: BoxDecoration(
                       color: Colors.grey.shade200,
                       borderRadius: BorderRadius.circular(15.0)
@@ -37,9 +38,9 @@ class _LeanBodyCalculationPageState extends State<LeanBodyCalculationPage> {
                       children: [
                         Image.asset('images/leanBody.png',height: 80,width: 80,),
                         SizedBox(
-                          height: 10,
+                          height: 10.h,
                         ),
-                        Text('Height'),
+
                         Padding(
                           padding: const EdgeInsets.only(left: 80,right: 80),
                           child: TextField(
@@ -52,7 +53,7 @@ class _LeanBodyCalculationPageState extends State<LeanBodyCalculationPage> {
                             keyboardType: TextInputType.number,
                           ),
                         ),
-                        Text('weight'),
+
                         Padding(
                           padding: const EdgeInsets.only(left: 80,right: 80),
                           child: TextField(
@@ -68,7 +69,7 @@ class _LeanBodyCalculationPageState extends State<LeanBodyCalculationPage> {
                     ),
                   ),
                 ),
-                SizedBox(height: 10,),
+                SizedBox(height: 10.h,),
                 GestureDetector(
                   onTap: (){
                     calaculateBMI();
@@ -77,8 +78,8 @@ class _LeanBodyCalculationPageState extends State<LeanBodyCalculationPage> {
                     _ageControler.clear();
                   },
                   child: Container(
-                    height: 50,
-                    width: 150,
+                    height: 50.h,
+                    width: 150.w,
                     child:Center(child:  Text('CALCULAT',style: TextStyle(fontSize: 20),)),
                     decoration: BoxDecoration(
                         color: Colors.grey.shade200,
@@ -86,10 +87,10 @@ class _LeanBodyCalculationPageState extends State<LeanBodyCalculationPage> {
                     ),
                   ),
                 ),
-                SizedBox(height: 10,),
+                SizedBox(height: 10.h,),
                 Container(
-                  height: 70,
-                  width: 400,
+                  height: 70.h,
+                  width: 400.w,
                   decoration: BoxDecoration(
                     color: Colors.grey.shade200,
                     borderRadius: BorderRadius.circular(10),
@@ -99,16 +100,16 @@ class _LeanBodyCalculationPageState extends State<LeanBodyCalculationPage> {
                     children: [
                       Text(_result.toStringAsFixed(1),style:TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                       SizedBox(
-                        width: 100,
+                        width: 100.h,
                       ),
                       Icon(Icons.delete),
                     ],
                   ),
                 ),
-                SizedBox(height: 10,),
+                SizedBox(height: 10.h,),
                 Container(
-                  height: 90,
-                  width: 400,
+                  height: 90.h,
+                  width: 400.w,
                   decoration: BoxDecoration(
                     color: Colors.grey.shade200,
                     borderRadius: BorderRadius.circular(10),
@@ -116,7 +117,7 @@ class _LeanBodyCalculationPageState extends State<LeanBodyCalculationPage> {
                   child:Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                     // Text(getResult().toString()),
+                      Expanded(child: Text('For men: Lean body mass = (0.32810 × W) + (0.33929 × H) − 29.5336 \n For women: Lean body mass = (0.29569 × W) + (0.41813 × H) − 43.2933')),
                     ],
                   ),
                 ),
@@ -131,12 +132,12 @@ class _LeanBodyCalculationPageState extends State<LeanBodyCalculationPage> {
 
   void  calaculateBMI(){
     setState(() {
-      double height=double.parse(_heightControler.text)/100;
-      double weight=double.parse(_weightControler.text);
-
-      double heightSqure= height*height;
-      double result=(weight/heightSqure) as double;
-      _result=result;
+      // double height=double.parse(_heightControler.text)/100;
+      // double weight=double.parse(_weightControler.text);
+      //
+      // double heightSqure= height*height;
+      // double result=(weight/heightSqure) as double;
+      // _result=result;
       setState(() {
 
       });

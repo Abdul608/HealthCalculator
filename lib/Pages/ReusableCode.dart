@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ReuseableCode extends StatelessWidget {
   final String image;
@@ -12,7 +13,7 @@ class ReuseableCode extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Container(
       height: height,
-      width: 150,
+      width: 150.w,
       child: Padding(
         padding:  EdgeInsets.all(20.0),
         child: Column(

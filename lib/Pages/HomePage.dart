@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:health_calculator/Pages/ReusableCode.dart';
 
 class HomePage extends StatelessWidget {
@@ -19,8 +20,8 @@ class HomePage extends StatelessWidget {
             boxShadow: [
               BoxShadow(
                 color: Colors.grey,
-                blurRadius: 10.0,
-                offset: Offset(0,-7)
+                blurRadius: 10.0.sp,
+                offset: Offset(0,-7.sp)
               ),
             ],
           ),
@@ -40,7 +41,7 @@ class HomePage extends StatelessWidget {
                             Navigator.pushNamed(context, "/IronPage");
                           },
                           child: ReuseableCode(
-                            height: 170,
+                            height: 170.h,
                               image: 'images/iron.webp',
                               name: 'Iron Deficit'),
                         ),
@@ -50,8 +51,8 @@ class HomePage extends StatelessWidget {
                             Navigator.pushNamed(context, "/RmiPage");
                           },
                           child: ReuseableCode(
-                          height: 150,
-                            image: 'images/inr.png',
+                          height: 150.h,
+                            image: 'images/rmi.png',
                             name: 'RMI'),
                         ),
 
@@ -65,7 +66,7 @@ class HomePage extends StatelessWidget {
                             Navigator.pushNamed(context, "/PregnancyPage");
                           },
                           child: ReuseableCode(
-                              height: 150,
+                              height: 150.h,
                               image: 'images/mother.png',
                               name: 'Pregnanacy'),
                         ),
@@ -75,7 +76,7 @@ class HomePage extends StatelessWidget {
                             Navigator.pushNamed(context, "/BmiPage");
                           },
                           child: ReuseableCode(
-                            height: 170,
+                            height: 170.h,
                             image: 'images/bmi.png',
                             name: 'BMI'),
                         ),
@@ -89,18 +90,18 @@ class HomePage extends StatelessWidget {
                             Navigator.pushNamed(context, "/LeanBodyPage");
                           },
                           child: ReuseableCode(
-                              height: 170,
+                              height: 170.h,
                               image: 'images/leanBody.png',
                               name: 'Lean Body'),
                         ),
 
                         GestureDetector(
-                          onTap: (){
+                          onTap: () {
                             Navigator.pushNamed(context, "/InrPage");
                           },
                           child: ReuseableCode(
-                            height: 150,
-                            image: 'images/leanBody.png',
+                            height: 150.h,
+                            image: 'images/inr.png',
                             name: 'INR Calculator'),
                         ),
                       ],

@@ -1,13 +1,14 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-class CalculationPage extends StatefulWidget {
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+class RMI_CalculationPage extends StatefulWidget {
 
 
   @override
-  State<CalculationPage> createState() => _CalculationPageState();
+  State<RMI_CalculationPage> createState() => _RMI_CalculationPageState();
 }
 
-class _CalculationPageState extends State<CalculationPage> {
+class _RMI_CalculationPageState extends State<RMI_CalculationPage> {
 
   final TextEditingController _heightControler=new TextEditingController();
   final TextEditingController _weightControler=new TextEditingController();
@@ -18,7 +19,7 @@ class _CalculationPageState extends State<CalculationPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(title: Text('Body Mass Index',style: TextStyle(color: Colors.black),),backgroundColor: Colors.white,),
+        appBar: AppBar(title: Text('RMI calculation',style: TextStyle(color: Colors.black),),backgroundColor: Colors.grey,),
         body:
         Padding(
           padding: const EdgeInsets.all(20.0),
@@ -26,8 +27,8 @@ class _CalculationPageState extends State<CalculationPage> {
             child: ListView(
               children: [
                 Container(
-                  height: 300,
-                  width: 400,
+                  height: 300.h,
+                  width: 400.w,
                   decoration: BoxDecoration(
                       color: Colors.grey.shade200,
                       borderRadius: BorderRadius.circular(15.0)
@@ -35,11 +36,10 @@ class _CalculationPageState extends State<CalculationPage> {
                   child: Center(
                     child: Column(
                       children: [
-                        Image.asset('images/leanBody.png',height: 80,width: 80,),
+                        Image.asset('images/rmi.png',height: 80.h,width: 80.w,),
                         SizedBox(
-                          height: 10,
+                          height: 10.h,
                         ),
-                        Text('Height'),
                         Padding(
                           padding: const EdgeInsets.only(left: 80,right: 80),
                           child: TextField(
@@ -52,7 +52,6 @@ class _CalculationPageState extends State<CalculationPage> {
                             keyboardType: TextInputType.number,
                           ),
                         ),
-                        Text('weight'),
                         Padding(
                           padding: const EdgeInsets.only(left: 80,right: 80),
                           child: TextField(
@@ -69,7 +68,7 @@ class _CalculationPageState extends State<CalculationPage> {
                     ),
                   ),
                 ),
-                SizedBox(height: 10,),
+                SizedBox(height: 10.h,),
                 GestureDetector(
                   onTap: (){
                     calaculateBMI();
@@ -78,8 +77,8 @@ class _CalculationPageState extends State<CalculationPage> {
                     _ageControler.clear();
                   },
                   child: Container(
-                    height: 50,
-                    width: 150,
+                    height: 50.h,
+                    width: 150.w,
                     child:Center(child:  Text('CALCULAT',style: TextStyle(fontSize: 20),)),
                     decoration: BoxDecoration(
                         color: Colors.grey.shade200,
@@ -87,10 +86,10 @@ class _CalculationPageState extends State<CalculationPage> {
                     ),
                   ),
                 ),
-                SizedBox(height: 10,),
+                SizedBox(height: 10.h,),
                 Container(
-                  height: 70,
-                  width: 400,
+                  height: 70.h,
+                  width: 400.w,
                   decoration: BoxDecoration(
                     color: Colors.grey.shade200,
                     borderRadius: BorderRadius.circular(10),
@@ -100,16 +99,16 @@ class _CalculationPageState extends State<CalculationPage> {
                     children: [
                       Text(_result.toStringAsFixed(1),style:TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                       SizedBox(
-                        width: 100,
+                        width: 100.w,
                       ),
                       Icon(Icons.delete),
                     ],
                   ),
                 ),
-                SizedBox(height: 10,),
+                SizedBox(height: 10.h,),
                 Container(
-                  height: 90,
-                  width: 400,
+                  height: 90.h,
+                  width: 400.w,
                   decoration: BoxDecoration(
                     color: Colors.grey.shade200,
                     borderRadius: BorderRadius.circular(10),
@@ -117,7 +116,7 @@ class _CalculationPageState extends State<CalculationPage> {
                   child:Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      //Text(getResult().toString()),
+                      Expanded(child: Text('RMI = U x M x CA125 \n RMI is a tool used for ovarian cancer detection. It combines three pre-surgical features: serum CA125 (CA125), menopausal status (M) and ultrasound score (U).')),
                     ],
                   ),
                 ),

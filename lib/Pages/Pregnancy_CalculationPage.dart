@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 class PregnancyCalculationPAge extends StatefulWidget {
 
 
@@ -18,7 +19,7 @@ class _PregnancyCalculationPAgeState extends State<PregnancyCalculationPAge> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(title: Text('Body Mass Index',style: TextStyle(color: Colors.black),),backgroundColor: Colors.white,),
+        appBar: AppBar(title: Text('Pregnancy calculation',style: TextStyle(color: Colors.black),),backgroundColor: Colors.grey,),
         body:
         Padding(
           padding: const EdgeInsets.all(20.0),
@@ -26,8 +27,8 @@ class _PregnancyCalculationPAgeState extends State<PregnancyCalculationPAge> {
             child: ListView(
               children: [
                 Container(
-                  height: 300,
-                  width: 400,
+                  height: 300.h,
+                  width: 400.w,
                   decoration: BoxDecoration(
                       color: Colors.grey.shade200,
                       borderRadius: BorderRadius.circular(15.0)
@@ -35,11 +36,13 @@ class _PregnancyCalculationPAgeState extends State<PregnancyCalculationPAge> {
                   child: Center(
                     child: Column(
                       children: [
-                        Image.asset('images/leanBody.png',height: 80,width: 80,),
-                        SizedBox(
-                          height: 10,
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Image.asset('images/mother.png',height: 80.h,width: 80.w,),
                         ),
-                        Text('Height'),
+                        SizedBox(
+                          height: 10.h,
+                        ),
                         Padding(
                           padding: const EdgeInsets.only(left: 80,right: 80),
                           child: TextField(
@@ -52,7 +55,6 @@ class _PregnancyCalculationPAgeState extends State<PregnancyCalculationPAge> {
                             keyboardType: TextInputType.number,
                           ),
                         ),
-                        Text('weight'),
                         Padding(
                           padding: const EdgeInsets.only(left: 80,right: 80),
                           child: TextField(
@@ -68,7 +70,7 @@ class _PregnancyCalculationPAgeState extends State<PregnancyCalculationPAge> {
                     ),
                   ),
                 ),
-                SizedBox(height: 10,),
+                SizedBox(height: 10.h,),
                 GestureDetector(
                   onTap: (){
                     calaculateBMI();
@@ -77,8 +79,8 @@ class _PregnancyCalculationPAgeState extends State<PregnancyCalculationPAge> {
                     _ageControler.clear();
                   },
                   child: Container(
-                    height: 50,
-                    width: 150,
+                    height: 50.h,
+                    width: 150.w,
                     child:Center(child:  Text('CALCULAT',style: TextStyle(fontSize: 20),)),
                     decoration: BoxDecoration(
                         color: Colors.grey.shade200,
@@ -86,10 +88,10 @@ class _PregnancyCalculationPAgeState extends State<PregnancyCalculationPAge> {
                     ),
                   ),
                 ),
-                SizedBox(height: 10,),
+                SizedBox(height: 10.h,),
                 Container(
-                  height: 70,
-                  width: 400,
+                  height: 70.h,
+                  width: 400.w,
                   decoration: BoxDecoration(
                     color: Colors.grey.shade200,
                     borderRadius: BorderRadius.circular(10),
@@ -99,16 +101,16 @@ class _PregnancyCalculationPAgeState extends State<PregnancyCalculationPAge> {
                     children: [
                       Text(_result.toStringAsFixed(1),style:TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                       SizedBox(
-                        width: 100,
+                        width: 100.w,
                       ),
                       Icon(Icons.delete),
                     ],
                   ),
                 ),
-                SizedBox(height: 10,),
+                SizedBox(height: 10.h,),
                 Container(
-                  height: 90,
-                  width: 400,
+                  height: 90.h,
+                  width: 400.w,
                   decoration: BoxDecoration(
                     color: Colors.grey.shade200,
                     borderRadius: BorderRadius.circular(10),
@@ -116,7 +118,7 @@ class _PregnancyCalculationPAgeState extends State<PregnancyCalculationPAge> {
                   child:Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                     // Text(getResult().toString()),
+                      Expanded(child: Image.asset('images/pregnancy_formula.png'),),
                     ],
                   ),
                 ),

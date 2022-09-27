@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 class BmiCalculationPage extends StatefulWidget {
 
 
@@ -26,8 +27,8 @@ class _BmiCalculationPageState extends State<BmiCalculationPage> {
             child: ListView(
               children: [
                 Container(
-                  height: 350,
-                  width: 400,
+                  height: 350.h,
+                  width: 400.w,
                   decoration: BoxDecoration(
                       color: Colors.grey.shade200,
                       borderRadius: BorderRadius.circular(15.0)
@@ -35,11 +36,10 @@ class _BmiCalculationPageState extends State<BmiCalculationPage> {
                   child: Center(
                     child: Column(
                       children: [
-                        Image.asset('images/leanBody.png',height: 80,width: 80,),
+                        Image.asset('images/bmi.png',height: 80.h,width: 80.w,),
                         SizedBox(
-                          height: 10,
+                          height: 10.h,
                         ),
-                        Text('Age',),
                         Padding(
                           padding: const EdgeInsets.only(left: 80,right: 80),
                           child: TextField(
@@ -50,7 +50,7 @@ class _BmiCalculationPageState extends State<BmiCalculationPage> {
                             ),
                             keyboardType: TextInputType.number,style: TextStyle(),),
                         ),
-                        Text('Height'),
+
                         Padding(
                           padding: const EdgeInsets.only(left: 80,right: 80),
                           child: TextField(
@@ -63,7 +63,7 @@ class _BmiCalculationPageState extends State<BmiCalculationPage> {
                             keyboardType: TextInputType.number,
                           ),
                         ),
-                        Text('weight'),
+
                         Padding(
                           padding: const EdgeInsets.only(left: 80,right: 80),
                           child: TextField(
@@ -79,7 +79,7 @@ class _BmiCalculationPageState extends State<BmiCalculationPage> {
                     ),
                   ),
                 ),
-                SizedBox(height: 10,),
+                SizedBox(height: 10.h,),
                 GestureDetector(
                   onTap: (){
                     calaculateBMI();
@@ -88,8 +88,8 @@ class _BmiCalculationPageState extends State<BmiCalculationPage> {
                     _ageControler.clear();
                   },
                   child: Container(
-                    height: 50,
-                    width: 150,
+                    height: 50.h,
+                    width: 150.h,
                     child:Center(child:  Text('CALCULAT',style: TextStyle(fontSize: 20),)),
                     decoration: BoxDecoration(
                         color: Colors.grey.shade200,
@@ -97,10 +97,10 @@ class _BmiCalculationPageState extends State<BmiCalculationPage> {
                     ),
                   ),
                 ),
-                SizedBox(height: 10,),
+                SizedBox(height: 10.h,),
                 Container(
-                  height: 70,
-                  width: 400,
+                  height: 70.h,
+                  width: 400.w,
                   decoration: BoxDecoration(
                     color: Colors.grey.shade200,
                     borderRadius: BorderRadius.circular(10),
@@ -110,16 +110,21 @@ class _BmiCalculationPageState extends State<BmiCalculationPage> {
                     children: [
                       Text(_result.toStringAsFixed(1),style:TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                       SizedBox(
-                        width: 100,
+                        width: 100.w,
                       ),
-                      Icon(Icons.delete),
+                      IconButton(onPressed: (){
+                        setState(() {
+
+                          print('clear');
+                        });
+                      }, icon: Icon(Icons.delete)),
                     ],
                   ),
                 ),
-                SizedBox(height: 10,),
+                SizedBox(height: 10.h,),
                 Container(
-                  height: 90,
-                  width: 400,
+                  height: 90.h,
+                  width: 400.w,
                   decoration: BoxDecoration(
                     color: Colors.grey.shade200,
                     borderRadius: BorderRadius.circular(10),
@@ -155,9 +160,9 @@ class _BmiCalculationPageState extends State<BmiCalculationPage> {
   }
 
   getResult() {
-    if(_result!>=25){
+    if(_result>=25){
       return 'Overweight';
-    }else if(_result!> 18.5){
+    }else if(_result> 18.5){
       return 'Underweight';
     }else
       return 'Normal';

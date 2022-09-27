@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 class InrCalculationPage extends StatefulWidget {
 
 
@@ -18,7 +19,7 @@ class _InrCalculationPageState extends State<InrCalculationPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(title: Text('Iron Deficit',style: TextStyle(color: Colors.black),),backgroundColor: Colors.white,),
+        appBar: AppBar(title:const Text('INR calculation',style: TextStyle(color: Colors.black),),backgroundColor: Colors.grey,),
         body:
         Padding(
           padding: const EdgeInsets.all(20.0),
@@ -26,8 +27,8 @@ class _InrCalculationPageState extends State<InrCalculationPage> {
             child: ListView(
               children: [
                 Container(
-                  height: 300,
-                  width: 400,
+                  height: 300.h,
+                  width: 400.w,
                   decoration: BoxDecoration(
                       color: Colors.grey.shade200,
                       borderRadius: BorderRadius.circular(15.0)
@@ -35,30 +36,29 @@ class _InrCalculationPageState extends State<InrCalculationPage> {
                   child: Center(
                     child: Column(
                       children: [
-                        Image.asset('images/leanBody.png',height: 80,width: 80,),
+                        Image.asset('images/inr.png',height: 80.h,width: 80.w,),
                         SizedBox(
-                          height: 10,
+                          height: 10.h,
                         ),
-                        Text('Actual Body weight:'),
+
                         Padding(
                           padding: const EdgeInsets.only(left: 80,right: 80),
                           child: TextField(
                             controller: _heightControler,
                             decoration: InputDecoration(
-                              labelText: 'weight',
+                              labelText: 'Actual Body weight:',
                               hintText: 'kg',
 
                             ),
                             keyboardType: TextInputType.number,
                           ),
                         ),
-                        Text('Actual Hb:'),
                         Padding(
                           padding: const EdgeInsets.only(left: 80,right: 80),
                           child: TextField(
                             controller: _weightControler,
                             decoration: InputDecoration(
-                              labelText: 'Weight',
+                              labelText: 'Actual Hb:',
                               hintText: '60 kg',
                             ),
                             keyboardType: TextInputType.number,style: TextStyle(),),
@@ -68,7 +68,7 @@ class _InrCalculationPageState extends State<InrCalculationPage> {
                     ),
                   ),
                 ),
-                SizedBox(height: 10,),
+                SizedBox(height: 10.h,),
                 GestureDetector(
                   onTap: (){
                     calaculateBMI();
@@ -77,8 +77,8 @@ class _InrCalculationPageState extends State<InrCalculationPage> {
                     _ageControler.clear();
                   },
                   child: Container(
-                    height: 50,
-                    width: 150,
+                    height: 50.h,
+                    width: 150.w,
                     child:Center(child:  Text('CALCULAT',style: TextStyle(fontSize: 20),)),
                     decoration: BoxDecoration(
                         color: Colors.grey.shade200,
@@ -86,10 +86,10 @@ class _InrCalculationPageState extends State<InrCalculationPage> {
                     ),
                   ),
                 ),
-                SizedBox(height: 10,),
+                SizedBox(height: 10.h,),
                 Container(
-                  height: 70,
-                  width: 400,
+                  height: 70.h,
+                  width: 400.w,
                   decoration: BoxDecoration(
                     color: Colors.grey.shade200,
                     borderRadius: BorderRadius.circular(10),
@@ -99,25 +99,30 @@ class _InrCalculationPageState extends State<InrCalculationPage> {
                     children: [
                       Text(_result.toStringAsFixed(1),style:TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                       SizedBox(
-                        width: 100,
+                        width: 100.h,
                       ),
                       Icon(Icons.delete),
                     ],
                   ),
                 ),
-                SizedBox(height: 10,),
+                SizedBox(height: 10.h,),
                 Container(
-                  height: 90,
-                  width: 400,
-                  decoration: BoxDecoration(
+                  height: 90.h,
+                  width: 400.w,
+
+
+                decoration: BoxDecoration(
                     color: Colors.grey.shade200,
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child:Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                    //  Text(getResult().toString()),
-                    ],
+                  child:SingleChildScrollView(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(' INR = Patient PT ÷ Control PT \n INR= (PT_test/PT_normal)^ISI \n INR	=	international normalized ratio \n PT_test	=	tested prothrombin time \n PT_normal	=	normal prothrombin time \n ISI	=	international sensitivity index'),
+                      //   Text(_result),
+                      ],
+                    ),
                   ),
                 ),
 
@@ -131,12 +136,14 @@ class _InrCalculationPageState extends State<InrCalculationPage> {
 
   void  calaculateBMI(){
     setState(() {
-      double height=double.parse(_heightControler.text)/100;
-      double weight=double.parse(_weightControler.text);
+      double PatientPT=double.parse(_heightControler.text)/100;
+      double ControlPT=double.parse(_weightControler.text);
 
-      double heightSqure= height*height;
-      double result=(weight/heightSqure) as double;
-      _result=result;
+
+      //INR = Patient PT ÷ Control PT
+    //  double heightSqure= height*height;
+      double INR=(PatientPT/ControlPT);
+      _result=INR;
       setState(() {
 
       });
